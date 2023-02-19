@@ -13,7 +13,9 @@ Project Setup:
  5. This will start the development server and open the project in your default web browser. If the project does not open automatically in your web browser, navigate to http://localhost:3000 to view the application.
  6. Run the tests for the project by running the command npm test.
 
+The Application:
 
+Check out the application here: https://react-assessment-karumanchi1.vercel.app/
 
 
 How to use the App:
