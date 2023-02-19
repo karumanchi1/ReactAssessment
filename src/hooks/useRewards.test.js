@@ -9,7 +9,7 @@ describe("useRewards", () => {
       { id: 3, amount: 110 },
     ];
     const { result } = renderHook(() => useRewards(transactions));
-    expect(result.current).toEqual(80); // expected rewards points for these transactions
+    expect(result.current).toEqual(80); 
   });
 
   test("returns 0 rewards points if there are no qualifying transactions", () => {

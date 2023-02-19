@@ -30,7 +30,7 @@ describe("Rewards component", () => {
     });
   });
 
-  test("renders the component properly", () => {
+  test("renders the reward component properly", () => {
     const rewardsCard = screen.getByTestId("rewards-card");
     expect(rewardsCard).toBeInTheDocument();
   });

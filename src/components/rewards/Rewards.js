@@ -6,17 +6,18 @@ import { useContext, useEffect, useState } from "react";
 import TransactionContext from "../../store/transaction-context";
 import useRewards from "../../hooks/useRewards";
 
-function Rewards() {
+//This component is used to display the Total Reward points and the Individual transactions made by each person.
+const Rewards = () => {
   const [filteredId, setFilteredIt] = useState("1");
   const [isloading, setisLoading] = useState(false);
   const transactionCtx = useContext(TransactionContext);
   const transactions = transactionCtx.transactions;
   const selectedIdTransactions = transactions.filter(
-    (transaction) => transaction.customerId == filteredId
+    (transaction) => transaction.customerId === filteredId
   );
   const rewardPoints = useRewards(selectedIdTransactions);
 
-  const name = selectedIdTransactions.find((a) => a.name != "").name;
+  const name = selectedIdTransactions.find((a) => a.name !== "").name;
 
   const filterChangeHandler = async (selectedId) => {
     setisLoading(true);
@@ -30,7 +31,6 @@ function Rewards() {
   }, [filteredId]);
 
   return (
-    <div>
       <Card className={classes.rewards} >
         <IDFilter selected={filteredId} onfilterChange={filterChangeHandler} />
         {isloading ? (
@@ -44,7 +44,7 @@ function Rewards() {
           <TransactionList transactions={selectedIdTransactions} />
         )}
       </Card>
-    </div>
+
   );
 }
 export default Rewards;

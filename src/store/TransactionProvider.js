@@ -10,7 +10,6 @@ const [transactions, setTransactions] = useState(sampleTransactions);
 
     const addTransactionHandler= async (newTransaction)=>{
      isLoadingHandler(true);
-     console.log(isLoading);
      await new Promise((resolve) => setTimeout(resolve, 1000));
      setTransactions((transactions) => [...transactions,newTransaction]);
      isLoadingHandler(false);

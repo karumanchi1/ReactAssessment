@@ -1,18 +1,20 @@
 import React  from "react";
 import classes from "./styles/IDFilter.module.css";
 
-const IDFilter = (props) => {
+
+//This component is used to filter by ID.
+const IDFilter = ({onfilterChange, selected}) => {
 
 
   const filterIDHandler = (event)=>{
-    props.onfilterChange(event.target.value);
+    onfilterChange(event.target.value);
 
   }
   return (
     <div className={classes.filter}>
       <div className={classes.control}>
         <label>Select Person By ID</label>
-        <select value={props.selected} onChange={filterIDHandler}>
+        <select value={selected} onChange={filterIDHandler}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

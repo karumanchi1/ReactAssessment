@@ -1,11 +1,12 @@
 import { useState, useContext } from "react";
 import TransactionContext from "../../store/transaction-context";
 import classes from "./styles/TransactionForm.module.css";
+import {func} from "prop-types";
 
+//The Transaction Form Component is used to add new transactions to the dataset.
 
-const TransactionForm = (props) => {
-
-
+const TransactionForm = ({onCloseForm}) => {
+  
   const [enteredId, setEnteredId] = useState("1");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -30,17 +31,16 @@ const TransactionForm = (props) => {
       name: "",
       amount: enteredAmount,
       transactionDate: enteredDate,
-      key:enteredDate+Math.random()
+      key: enteredDate + Math.random(),
     };
     await addTransaction(transactionData);
     setEnteredAmount("");
     setEnteredDate("");
     setEnteredId("");
-    props.onCloseForm();
+    onCloseForm();
   };
 
-
-  const form = (
+  const transactionForm = (
     <form data-testid="transaction-form" onSubmit={submitHandler}>
       <div className={classes.controls}>
         <div className={classes.control}>
@@ -82,13 +82,17 @@ const TransactionForm = (props) => {
           <button type="submit">Add Transaction</button>
         </div>
         <div className={classes.actions}>
-          <button onClick={props.onCloseForm}>Cancel</button>
+          <button onClick={onCloseForm}>Cancel</button>
         </div>
       </div>
     </form>
   );
 
-
-  return form;
+  return transactionForm;
 };
+
+TransactionForm.propTypes = {
+  onCloseForm: func.isRequired
+};
+
 export default TransactionForm;

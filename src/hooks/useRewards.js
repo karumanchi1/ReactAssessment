@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import transactionsData from "../store/transaction-context";
 
 const useRewards = (transactions) => {
 

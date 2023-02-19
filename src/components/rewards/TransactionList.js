@@ -1,10 +1,11 @@
 import classes from "./styles/TransactionList.module.css";
 import TransactionItem from "./TransactionItem";
 
-const TransactionList = (props) => {
+
+const TransactionList = ({transactions}) => {
   return (
     <ul className={classes.list}>
-      {props.transactions.map((transaction) => (
+      {transactions.map((transaction) => (
         <TransactionItem
           transaction={transaction}
           key={transaction.key}
